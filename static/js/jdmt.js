@@ -164,3 +164,35 @@ if (contactForm) {
         }
     });
 }
+
+/* =========================
+   COOKIE & EMBED CONSENT
+========================= */
+const consentKey = "jdmt_cookie_consent_v1";
+const cookieBanner = document.getElementById("cookieBanner");
+const acceptCookies = document.getElementById("acceptCookies");
+const rejectCookies = document.getElementById("rejectCookies");
+const contactMap = document.getElementById("contactMap");
+const mapConsent = document.getElementById("mapConsent");
+const allowMapBtn = document.getElementById("allowMapBtn");
+
+function loadOptionalContent() {
+    if (contactMap && !contactMap.src) {
+        contactMap.src = contactMap.dataset.src;
+    }
+    if (mapConsent) mapConsent.hidden = true;
+}
+
+function saveConsent(value) {
+    localStorage.setItem(consentKey, value);
+    if (cookieBanner) cookieBanner.hidden = true;
+    if (value === "optional-allowed") loadOptionalContent();
+}
+
+const savedConsent = localStorage.getItem(consentKey);
+if (!savedConsent && cookieBanner) cookieBanner.hidden = false;
+if (savedConsent === "optional-allowed") loadOptionalContent();
+
+acceptCookies?.addEventListener("click", () => saveConsent("optional-allowed"));
+rejectCookies?.addEventListener("click", () => saveConsent("necessary-only"));
+allowMapBtn?.addEventListener("click", () => saveConsent("optional-allowed"));

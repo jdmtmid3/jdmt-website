@@ -1030,3 +1030,60 @@ ul{list-style:none}
   .product-categories{grid-template-columns:1fr}
   .hero-btns{flex-direction:column;align-items:flex-start}
 }
+.map-consent {
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 32px;
+    text-align: center;
+    background: #eef4ff;
+    color: #0d2352;
+}
+
+.map-consent i { font-size: 2rem; color: #14d6a0; }
+.map-consent p { max-width: 360px; margin: 0; color: #52617e; }
+.map-consent button,
+.cookie-btn {
+    border: 0;
+    border-radius: 10px;
+    padding: 11px 16px;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.map-consent button { background: #0d2352; color: #fff; }
+.contact-map-card iframe:not([src]) { display: none; }
+
+.cookie-banner {
+    position: fixed;
+    z-index: 9999;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    max-width: 1120px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    background: #0d2352;
+    color: #fff;
+    box-shadow: 0 20px 55px rgba(0,0,0,.28);
+}
+.cookie-banner[hidden] { display: none; }
+.cookie-banner p { margin: 5px 0 0; color: rgba(255,255,255,.78); }
+.cookie-banner a { color: #24e0ad; }
+.cookie-banner-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.45); }
+.cookie-btn-primary { background: #20d6a1; color: #082342; }
+
+@media (max-width: 760px) {
+    .cookie-banner { align-items: stretch; flex-direction: column; }
+    .cookie-banner-actions { flex-direction: column; }
+}

@@ -15,6 +15,22 @@ EMAIL_PATTERN = re.compile(r"^[^\s@]+@[^\s@]+\.[^\s@]+$")
 def index():
     return render_template('jdmt.html')
 
+@app.route('/terms-of-use')
+def terms_of_use():
+    return render_template('legal.html', page='terms')
+
+@app.route('/privacy-policy')
+def privacy_policy():
+    return render_template('legal.html', page='privacy')
+
+@app.route('/cookie-policy')
+def cookie_policy():
+    return render_template('legal.html', page='cookies')
+
+@app.route('/faqs')
+def faqs():
+    return render_template('legal.html', page='faqs')
+
 @app.route('/contact', methods=['POST'])
 def contact():
     try:
